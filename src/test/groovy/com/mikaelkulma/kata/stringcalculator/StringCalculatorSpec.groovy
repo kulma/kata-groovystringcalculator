@@ -2,7 +2,6 @@ package com.mikaelkulma.kata.stringcalculator;
 
 import spock.lang.Specification
 
-
 class StringCalculatorSpec extends Specification {
 
     def calculator = new StringCalculor();
@@ -17,4 +16,8 @@ class StringCalculatorSpec extends Specification {
         calculator.add("1") == 1
     }
 
+    def "Two numbers return their sum"() {
+        expect:
+        calculator.add("1,2") == 3
+    }
 }

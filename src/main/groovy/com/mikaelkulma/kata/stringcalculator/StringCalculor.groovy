@@ -4,6 +4,8 @@ package com.mikaelkulma.kata.stringcalculator
 class StringCalculor {
 
     def add(String input) {
-        return input.isInteger() ? input as Integer : 0
+        input.split(",").collect({
+            it.isInteger() ? it as Integer : 0
+        }).sum()
     }
 }
