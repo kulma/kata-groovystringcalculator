@@ -34,4 +34,9 @@ class StringCalculatorSpec extends Specification {
         "87,23,3,1,3,3,3"   | 123
         "1,1,1,1,1,1,1,1,1" | 9
     }
+
+    def "Newlines can be used as separators"() {
+        expect:
+        calculator.add("1\n2,3") == 6
+    }
 }
