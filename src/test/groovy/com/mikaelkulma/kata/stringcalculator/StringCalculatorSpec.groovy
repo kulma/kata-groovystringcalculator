@@ -11,4 +11,10 @@ class StringCalculatorSpec extends Specification {
         expect:
         calculator.add("") == 0
     }
+
+    def "A single number returns the number"() {
+        expect:
+        calculator.add("1") == 1
+    }
+
 }
