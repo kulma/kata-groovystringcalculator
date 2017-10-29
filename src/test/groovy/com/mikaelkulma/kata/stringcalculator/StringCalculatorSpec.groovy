@@ -1,5 +1,6 @@
-package com.mikaelkulma.kata.stringcalculator;
+package com.mikaelkulma.kata.stringcalculator
 
+import spock.lang.IgnoreRest;
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -35,8 +36,13 @@ class StringCalculatorSpec extends Specification {
         "1,1,1,1,1,1,1,1,1" | 9
     }
 
-    def "Newlines can be used as separators"() {
+    def "Newlines can be used as delimiters"() {
         expect:
         calculator.add("1\n2,3") == 6
+    }
+
+    def "An extra delimiter can be added to the input as follows //delimiter\n[numbers…]"() {
+        expect:
+        calculator.add("//-\n1-2-3") == 6
     }
 }
