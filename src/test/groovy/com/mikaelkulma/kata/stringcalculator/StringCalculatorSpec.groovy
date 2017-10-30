@@ -45,4 +45,9 @@ class StringCalculatorSpec extends Specification {
         expect:
         calculator.add("//-\n1-2-3") == 6
     }
+
+    def "Multiple delimiters can be added as follows //[delimiter1][delimiter2]\n[numbers…]"() {
+        expect:
+        calculator.add("//[-][#]\n1-2#3") == 6
+    }
 }
