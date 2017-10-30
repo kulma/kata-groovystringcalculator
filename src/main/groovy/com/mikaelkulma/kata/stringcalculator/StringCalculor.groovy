@@ -17,7 +17,7 @@ class StringCalculor {
         }
 
         input.split(delimiters.join("|")).collect({
-            it.isInteger() ? it as Integer : 0
+            it.isInteger() && (it as Integer) < 1001 ? it as Integer : 0
         }).sum()
     }
 

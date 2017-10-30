@@ -55,4 +55,9 @@ class StringCalculatorSpec extends Specification {
         expect:
         calculator.add("//[----][#####]\n1----2#####3") == 6
     }
+
+    def "Nunbers larger than 1000 are ignored"() {
+        expect:
+        calculator.add("1,1001") == 1
+    }
 }
