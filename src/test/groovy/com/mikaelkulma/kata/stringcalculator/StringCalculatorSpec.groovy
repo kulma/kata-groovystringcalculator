@@ -50,4 +50,9 @@ class StringCalculatorSpec extends Specification {
         expect:
         calculator.add("//[-][#]\n1-2#3") == 6
     }
+
+    def "Delimiters can be of any length"() {
+        expect:
+        calculator.add("//[----][#####]\n1----2#####3") == 6
+    }
 }
