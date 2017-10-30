@@ -60,4 +60,12 @@ class StringCalculatorSpec extends Specification {
         expect:
         calculator.add("1,1001") == 1
     }
+
+    def "Negative numbers will throw an exception 'Negatives are not allowed'"() {
+        when:
+        calculator.add("-1,-2") == 1
+        then:
+        def e = thrown(RuntimeException)
+        e.message == "Negatives are not allowed"
+    }
 }

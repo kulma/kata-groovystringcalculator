@@ -17,7 +17,14 @@ class StringCalculor {
         }
 
         input.split(delimiters.join("|")).collect({
-            it.isInteger() && (it as Integer) < 1001 ? it as Integer : 0
+            it.isInteger() ? it as Integer : 0
+        }).findAll({
+            it < 1001
+        }).collect({
+            if (it < 0) {
+                throw new RuntimeException("Negatives are not allowed")
+            }
+            it
         }).sum()
     }
 
